@@ -1,4 +1,11 @@
 language: java
 
-after_success:
-  - mvn clean cobertura:cobertura coveralls:report
+jdk:
+        - oraclejdk8
+
+matrix:
+    fast_finished: true
+
+script:
+        - mvn install -DskipTests=true
+        - mvn test
