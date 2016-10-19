@@ -510,7 +510,6 @@ public class TsRulesDefinitionTest {
         assertEquals(Severity.MINOR, rule2.severity());
         assertEquals("#2 description", rule2.htmlDescription());
         assertEquals(null, rule2.debtRemediationFunction());
-        assertEquals(null, rule2.debtSubCharacteristic());
 
         // cfg3
         Rule rule3 = getRule("custom-rule-3");
@@ -524,10 +523,6 @@ public class TsRulesDefinitionTest {
         );
         assertEquals(null, rule3.debtRemediationFunction().coefficient());
         assertEquals("15min", rule3.debtRemediationFunction().offset());
-        assertEquals(
-            TsRulesDefinition.DEFAULT_RULE_DEBT_TYPE,
-            rule3.debtSubCharacteristic()
-        );
 
         Rule rule4 = getRule("custom-rule-4");
         assertNotNull(rule4);
@@ -540,10 +535,6 @@ public class TsRulesDefinitionTest {
         );
         assertEquals("5min", rule4.debtRemediationFunction().coefficient());
         assertEquals(null, rule4.debtRemediationFunction().offset());
-        assertEquals(
-            RulesDefinition.SubCharacteristics.EXCEPTION_HANDLING,
-            rule4.debtSubCharacteristic()
-        );
 
         Rule rule5 = getRule("custom-rule-5");
         assertNotNull(rule5);
@@ -556,10 +547,6 @@ public class TsRulesDefinitionTest {
         );
         assertEquals("30min", rule5.debtRemediationFunction().coefficient());
         assertEquals("15min", rule5.debtRemediationFunction().offset());
-        assertEquals(
-            RulesDefinition.SubCharacteristics.HARDWARE_RELATED_PORTABILITY,
-            rule5.debtSubCharacteristic()
-        );
     }
 
     @Test
